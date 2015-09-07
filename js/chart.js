@@ -23,7 +23,7 @@ var valueline = d3.svg.line()
     .y(function(d) { return y(d.rank); });
 
 // Adds the svg canvas
-var svg = d3.select("body")
+var svg = d3.select("body").selectAll("div.chart")
     .append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
@@ -116,7 +116,7 @@ function analyze(error, harper, rowan, everett, finn) {
     var legend = svg.append("g")
       .attr("class", "legend")
       .attr("x", width - 90)
-      .attr("y", 0)
+      .attr("y", 250)
       .attr("height", 100)
       .attr("width", 100);
 
@@ -127,14 +127,14 @@ function analyze(error, harper, rowan, everett, finn) {
         var g = d3.select(this);
         g.append("rect")
           .attr("x", width - 65)
-          .attr("y", i*25)
+          .attr("y", (i +9)*25)
           .attr("width", 10)
           .attr("height", 10)
           .style("fill", color_hash[String(i)][1]);
         
         g.append("text")
           .attr("x", width - 50)
-          .attr("y", i * 25 + 8)
+          .attr("y", (i +9)* 25 + 8)
           .attr("height",30)
           .attr("width",100)
           .style("fill", color_hash[String(i)][1])
